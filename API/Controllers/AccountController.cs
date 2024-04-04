@@ -35,6 +35,7 @@ namespace API.Controllers
             user.UserName = registerDto.Username.ToLower();
             user.PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(registerDto.Password));
             user.PasswordSalt = hmac.Key;
+            user.Role = await _context.Roles.FirstOrDefaultAsync(x => x.Name == "User");
 
 
             _context.Users.Add(user);
