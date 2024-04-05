@@ -39,6 +39,7 @@ namespace API.Controllers
         {
             return Ok(await _roleRepository.GetRolesAsync());
         }
+
         [HttpGet("{id}")]
         public async Task<ActionResult<RoleDto>> GetRole(int id)
         {

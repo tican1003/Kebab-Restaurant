@@ -3,9 +3,6 @@ using API.Entities;
 using API.Interfaces;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace API.Controllers
 {
@@ -28,15 +25,14 @@ namespace API.Controllers
             await _billRepository.CreateBillAsync(bill);
             await _billRepository.SaveAllAsync();
 
-            return CreatedAtAction(nameof(GetBill), new { id = bill.Id }, _mapper.Map<BillDto>(bill));
+            return billDto;
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<BillDto>>> GetBills()
+        public async Task<ActionResult<BillDto>> GetBills()
         {
             var bills = await _billRepository.GetBillsAsync();
-            var billDtos = _mapper.Map<IEnumerable<BillDto>>(bills);
-            return Ok(billDtos);
+            return Ok(bills);
         }
 
         [HttpGet("{id}")]
@@ -53,11 +49,6 @@ namespace API.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> Update(int id, BillDto billDto)
         {
-            if (id != billDto.Id)
-            {
-                return BadRequest();
-            }
-
             var bill = await _billRepository.GetBillByIdAsync(id);
             if (bill == null)
             {
@@ -66,23 +57,9 @@ namespace API.Controllers
 
             _mapper.Map(billDto, bill);
 
-            try
-            {
-                await _billRepository.SaveAllAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!BillExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+            if(await _billRepository.SaveAllAsync()) return NoContent();
 
-            return NoContent();
+            return BadRequest("Failed to update bill");
         }
 
         [HttpDelete("{id}")]
@@ -95,14 +72,9 @@ namespace API.Controllers
             }
 
             _billRepository.DeleteBill(bill);
-            await _billRepository.SaveAllAsync();
+            if(await _billRepository.SaveAllAsync()) return NoContent();
 
-            return NoContent();
-        }
-
-        private bool BillExists(int id)
-        {
-            return _billRepository.GetBillByIdAsync(id) != null;
+            return BadRequest("Failed to delete bill");
         }
     }
 }
