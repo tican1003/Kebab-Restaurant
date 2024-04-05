@@ -22,14 +22,19 @@ namespace API.Data
         {
             return await _context.Roles.ToListAsync();
         }
-
-        public void UpdateRole(Role role)
+        public async Task<Role> GetRoleByIdAsync(int id)
         {
-            _context.Entry(role).State = EntityState.Modified;
+            return await _context.Roles.FindAsync(id);
+        }
+        public void DeleteRole(Role role)
+        {
+            _context.Roles.Remove(role);
         }
         public async Task<bool> SaveAllAsync()
         {
             return await _context.SaveChangesAsync() > 0;
         }
+
+        
     }
 }
