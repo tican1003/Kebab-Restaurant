@@ -1,6 +1,4 @@
 ﻿using API.Entities;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace API.Interfaces
 {
@@ -13,4 +11,3 @@ namespace API.Interfaces
         Task<bool> SaveAllAsync();
     }
 }
-
