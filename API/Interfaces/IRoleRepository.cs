@@ -9,5 +9,6 @@ namespace API.Interfaces
         Task<Role> CreateRoleAsync(Role role);
         void DeleteRole(Role role);
         Task<bool> SaveAllAsync();
+        Task GetRoleByIdAsync(object roleId);
     }
 }
