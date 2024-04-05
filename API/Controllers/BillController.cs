@@ -45,7 +45,7 @@ namespace API.Controllers
             var bill = await _billRepository.GetBillByIdAsync(id);
             if (bill == null)
             {
-                return NotFound();
+                return NotFound("Bill not found");
             }
             return Ok(_mapper.Map<BillDto>(bill));
         }
@@ -55,13 +55,13 @@ namespace API.Controllers
         {
             if (id != billDto.Id)
             {
-                return BadRequest();
+                return BadRequest("Invalid bill ID");
             }
 
             var bill = await _billRepository.GetBillByIdAsync(id);
             if (bill == null)
             {
-                return NotFound();
+                return NotFound("Bill not found");
             }
 
             _mapper.Map(billDto, bill);
@@ -74,7 +74,7 @@ namespace API.Controllers
             {
                 if (!BillExists(id))
                 {
-                    return NotFound();
+                    return NotFound("Bill not found");
                 }
                 else
                 {
@@ -82,7 +82,7 @@ namespace API.Controllers
                 }
             }
 
-            return NoContent();
+            return Ok("Bill updated successfully");
         }
 
         [HttpDelete("{id}")]
@@ -91,13 +91,13 @@ namespace API.Controllers
             var bill = await _billRepository.GetBillByIdAsync(id);
             if (bill == null)
             {
-                return NotFound();
+                return NotFound("Bill not found");
             }
 
             _billRepository.DeleteBill(bill);
             await _billRepository.SaveAllAsync();
 
-            return NoContent();
+            return Ok("Bill deleted successfully");
         }
 
         private bool BillExists(int id)
