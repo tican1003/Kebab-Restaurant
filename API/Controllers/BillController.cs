@@ -41,7 +41,7 @@ namespace API.Controllers
             var bill = await _billRepository.GetBillByIdAsync(id);
             if (bill == null)
             {
-                return NotFound();
+                return NotFound("Bill not found");
             }
             return Ok(_mapper.Map<BillDto>(bill));
         }
@@ -52,7 +52,7 @@ namespace API.Controllers
             var bill = await _billRepository.GetBillByIdAsync(id);
             if (bill == null)
             {
-                return NotFound();
+                return NotFound("Bill not found");
             }
 
             _mapper.Map(billDto, bill);
@@ -68,7 +68,7 @@ namespace API.Controllers
             var bill = await _billRepository.GetBillByIdAsync(id);
             if (bill == null)
             {
-                return NotFound();
+                return NotFound("Bill not found");
             }
 
             _billRepository.DeleteBill(bill);
