@@ -11,7 +11,9 @@ namespace API.Helpers
             CreateMap<RegisterDto, AppUser>();
             CreateMap<RoleDto, Role>();
             CreateMap<BillDto, Bill>();
-            CreateMap<Bill, BillDto>();
+            CreateMap<Bill, BillDto>(); 
+            CreateMap<ItemDto, Item>();
+            CreateMap<Item, ItemDto>();
         }
     }
 }
