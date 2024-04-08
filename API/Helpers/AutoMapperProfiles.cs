@@ -12,13 +12,9 @@ namespace API.Helpers
             CreateMap<RegisterDto, AppUser>();
             CreateMap<RoleDto, Role>();
             CreateMap<BillDto, Bill>();
-            CreateMap<Bill, BillDto>();
             CreateMap<OrderDto, Order>();
-            CreateMap<Order, OrderDto>();
             CreateMap<ItemDto, Item>();
-            CreateMap<Item, ItemDto>();
             CreateMap<MenuDto, Menu>();
-            CreateMap<Menu, MenuDto>();
         }
     }
 }

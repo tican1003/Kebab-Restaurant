@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ItemsService } from '../services/items.service';
+import { Menu } from '../models/menu';
 
 @Component({
   selector: 'app-home',
@@ -7,6 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
   title = 'Home';
-  constructor() {}
-  ngOnInit(): void {}
+  menu: Menu[] | undefined;
+
+  constructor(private itemsService: ItemsService) {}
+  ngOnInit(): void {
+    this.loadMenu();
+  }
+
+  loadMenu() {
+    this.itemsService.getMenu().subscribe({
+      next: (menu) => {
+        this.menu = menu;
+      },
+    });
+  }
 }

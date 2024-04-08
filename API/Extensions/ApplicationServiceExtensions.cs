@@ -21,6 +21,7 @@ namespace API.Extensions
                 services.AddScoped<IOrderRepository, OrderRepository>();
                 services.AddScoped<IItemRepository, ItemRepository>();
                 services.AddScoped<IUserRepository, UserRepository>();
+                services.AddScoped<IMenuRepository, MenuRepository>();
 
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
