@@ -6,10 +6,8 @@ namespace API.DTOs
     {
         public Order Order { get; set; }
         public DateTime TimeOut { get; set; }
-        public bool IsSucces { get; set; }
+        public bool IsSuccess { get; set; }
         public Payment Payment { get; set; }
-        public int OrderId { get; internal set; }
-        public int PaymentId { get; internal set; }
-        public bool IsSuccess { get; internal set; }
+        public Role Role { get; set; }
     }
 }

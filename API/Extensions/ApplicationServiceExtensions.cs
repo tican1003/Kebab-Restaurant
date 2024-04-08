@@ -18,6 +18,10 @@ namespace API.Extensions
                 services.AddScoped<ITokenService, TokenService>();
                 services.AddScoped<IRoleRepository, RoleRepository>();
                 services.AddScoped<IBillRepository, BillRepository>();
+                services.AddScoped<IOrderRepository, OrderRepository>();
+                services.AddScoped<IItemRepository, ItemRepository>();
+                services.AddScoped<IUserRepository, UserRepository>();
+
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
                 return services;

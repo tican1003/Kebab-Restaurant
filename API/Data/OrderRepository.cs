@@ -30,5 +30,15 @@ namespace API.Repositories
         {
             return await _context.SaveChangesAsync() > 0;
         }
+
+        public async Task<IEnumerable<Order>> GetOrdersAsync()
+        {
+            return await _context.Orders.ToListAsync();
+        }
+
+        public void DeleteOrder(Order order)
+        {
+            _context.Orders.Remove(order);
+        }
     }
 }

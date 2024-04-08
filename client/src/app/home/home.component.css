@@ -1,0 +1,5 @@
+@import './../../assets/public/css/bootstrap.css';
+@import './../../assets/public/css/responsive.css';
+@import url("https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/css/nice-select.min.css");
+@import './../../styles.css';

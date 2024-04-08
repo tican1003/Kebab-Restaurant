@@ -1,8 +1,10 @@
 ﻿using API.DTOs;
 using API.Entities;
+using API.Extensions;
 using API.Interfaces;
 using API.Repositories;
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
@@ -11,31 +13,36 @@ namespace API.Controllers
     public class OrderController : BaseApiController
     {
         private readonly IOrderRepository _orderRepository;
+        private readonly IUserRepository _userRepository;
         private readonly IMapper _mapper;
 
-        public OrderController(IOrderRepository orderRepository, IMapper mapper)
+        public OrderController(IOrderRepository orderRepository, IUserRepository userRepository,  IMapper mapper)
         {
             _orderRepository = orderRepository;
+            _userRepository = userRepository;
             _mapper = mapper;
         }
 
         [HttpPost]
         public async Task<ActionResult<OrderDto>> Create(OrderDto orderDto)
         {
+            var user = await _userRepository.GetUserByUsernameAsync(User.GetUserName());
+
+            orderDto.User = user;
+
             var order = _mapper.Map<Order>(orderDto);
 
             await _orderRepository.CreateOrderAsync(order);
-            await _orderRepository.SaveAllAsync();
+            if(await _orderRepository.SaveAllAsync()) return Ok(order);
 
-            return Ok(orderDto);
+            return BadRequest("Failed to create order");
         }
 
         [HttpGet]
         public async Task<ActionResult<IEnumerable<OrderDto>>> GetOrders()
         {
             var orders = await _orderRepository.GetOrdersAsync();
-            var orderDtos = _mapper.Map<IEnumerable<OrderDto>>(orders);
-            return Ok(orderDtos);
+            return Ok(orders);
         }
 
         [HttpGet("{id}")]
@@ -54,7 +61,7 @@ namespace API.Controllers
         {
             var order = await _orderRepository.GetOrderByIdAsync(id);
             if (order == null)
-                return NotFound();
+                return NotFound("Bill not found");
 
             _mapper.Map(orderDto, order);
 

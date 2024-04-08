@@ -35,7 +35,7 @@ namespace API.Controllers
         public async Task<ActionResult<IEnumerable<ItemDto>>> GetItems()
         {
             var items = await _itemRepository.GetItemsAsync();
-            return Ok(_mapper.Map<IEnumerable<ItemDto>>(items));
+            return Ok(items);
         }
 
 

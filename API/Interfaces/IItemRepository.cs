@@ -11,5 +11,5 @@ namespace API.Interfaces
         Task<Item> CreateItemAsync(Item item);
         void DeleteItem(Item item);
         Task<bool> SaveAllAsync();
-        Task GetItemByIdAsync(object id);
     }
+}

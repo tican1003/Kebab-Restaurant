@@ -1,4 +1,6 @@
-﻿namespace API.Entities
+﻿using System.ComponentModel;
+
+namespace API.Entities
 {
     public class Order
     {
