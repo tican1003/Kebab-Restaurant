@@ -1,8 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\API\\Controllers"
+    "\\API",
+    "\\API\\Entities"
   ],
-  "SelectedNode": "\\API",
+  "SelectedNode": "\\API\\Entities",
   "PreviewInSolutionExplorer": false
 }

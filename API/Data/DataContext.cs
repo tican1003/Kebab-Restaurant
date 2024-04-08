@@ -16,5 +16,7 @@ namespace API.Data
         public DbSet<Order> Orders { get; set; }
         public DbSet<Bill> Bills { get; set; }
         public DbSet<Payment> Payments { get; set; }
+        public DbSet<Menu> Menus { get; set; }
+
     }
 }
