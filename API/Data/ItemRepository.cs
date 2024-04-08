@@ -33,7 +33,7 @@ namespace API.Data
 
         public async Task<IEnumerable<Item>> GetItemsAsync()
         {
-            return await _context.Items.ToListAsync();
+            return await _context.Items.Include(x => x.Order).ToListAsync();
         }
 
         public async Task<bool> SaveAllAsync()

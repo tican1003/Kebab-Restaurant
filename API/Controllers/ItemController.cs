@@ -11,24 +11,36 @@ namespace API.Controllers
 {
     public class ItemController : BaseApiController
     {
+        private readonly IOrderRepository _orderRepository;
         private readonly IItemRepository _itemRepository;
         private readonly IMapper _mapper;
 
-        public ItemController(IItemRepository itemRepository, IMapper mapper)
+        public ItemController(IItemRepository itemRepository, IOrderRepository orderRepository, IMapper mapper)
         {
+            _orderRepository = orderRepository;
             _itemRepository = itemRepository;
             _mapper = mapper;
         }
 
         [HttpPost]
-        public async Task<ActionResult<ItemDto>> Create(ItemDto itemDto)
+        public async Task<ActionResult<ItemDto>> Create(AddItemDto addItemDto)
         {
+
+            var order = await _orderRepository.GetOrderByIdAsync(addItemDto.OrderId);
+            var itemDto = new ItemDto
+            {
+                Name = addItemDto.Name,
+                Price = addItemDto.Price,
+                Quantity = addItemDto.Quantity,
+                CaculationUnit = addItemDto.CaculationUnit,
+                IsSuccess = addItemDto.IsSuccess,
+                Order = order,
+            };
             var item = _mapper.Map<Item>(itemDto);
 
             await _itemRepository.CreateItemAsync(item);
-            await _itemRepository.SaveAllAsync();
-
-            return itemDto;
+            if (await _itemRepository.SaveAllAsync()) return itemDto;
+            return BadRequest("Failed to create Item");
         }
 
         [HttpGet]

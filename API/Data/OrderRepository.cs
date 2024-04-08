@@ -33,7 +33,7 @@ namespace API.Repositories
 
         public async Task<IEnumerable<Order>> GetOrdersAsync()
         {
-            return await _context.Orders.ToListAsync();
+            return await _context.Orders.Include(x => x.User).ToListAsync();
         }
 
         public void DeleteOrder(Order order)
