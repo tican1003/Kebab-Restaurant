@@ -6,7 +6,7 @@
   <header class="header_section">
     <div class="container">
       <nav class="navbar navbar-expand-lg custom_nav-container">
-        <a class="navbar-brand" href="index.html">
+        <a class="navbar-brand" routerLink="/" routerLinkActive="active">
           <span> Feane </span>
         </a>
 
@@ -24,23 +24,52 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mx-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="index.html"
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/" routerLinkActive="active"
                 >Home <span class="sr-only">(current)</span></a
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="menu.html">Menu</a>
+              <a class="nav-link" routerLink="/menu" routerLinkActive="active"
+                >Menu</a
+              >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="about.html">About</a>
+              <a class="nav-link" routerLink="/about" routerLinkActive="active"
+                >About</a
+              >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="book.html">Book Table</a>
+              <a
+                class="nav-link"
+                routerLink="/booking"
+                routerLinkActive="active"
+                >Book Table</a
+              >
             </li>
           </ul>
           <div class="user_option">
-            <a href="login.html" class="user_link">
+            <span
+              class="span-user"
+              *ngIf="accountService.currentUser$ | async as user"
+              >Xin chào {{ user.username }}!</span
+            >
+            <a
+              *ngIf="accountService.currentUser$ | async"
+              (click)="logout()"
+              class="user_link"
+            >
+              <i
+                class="fa fa-sign-out"
+                aria-hidden="true"
+                style="color: #fff"
+              ></i>
+            </a>
+            <a
+              *ngIf="!(accountService.currentUser$ | async)"
+              routerLink="/login"
+              class="user_link"
+            >
               <i class="fa fa-user" aria-hidden="true"></i>
             </a>
             <a class="cart_link" href="cart.html">

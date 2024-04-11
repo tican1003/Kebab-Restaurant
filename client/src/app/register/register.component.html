@@ -1,0 +1,30 @@
+<div class="register">
+  <h1>Register</h1>
+  <form #loginForm="ngForm" (ngSubmit)="register()" autocomplete="off">
+    <label for="username">Username</label>
+    <input
+      type="text"
+      name="username"
+      placeholder="Username"
+      formControlName="username"
+    />
+    <label for="password">Password</label>
+    <input
+      type="password"
+      name="password"
+      placeholder="Password"
+      formControlName="password"
+    />
+    <label for="password">Confirm Password</label>
+    <input
+      type="password"
+      name="confirmPassword"
+      placeholder="Confirm Password"
+      formControlName="confirmPassword"
+    />
+    <input type="submit" value="Register" />
+  </form>
+  <div class="links">
+    <a routerLink="/login">Have an account? Login here.</a>
+  </div>
+</div>
