@@ -23,5 +23,11 @@ export class HomeComponent implements OnInit {
         this.menu = menu;
       },
     });
+
+    if (this.menu) {
+      if (this.menu.length > 6) {
+        this.menu = this.menu.slice(1, 6);
+      }
+    }
   }
 }

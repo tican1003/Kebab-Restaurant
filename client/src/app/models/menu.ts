@@ -4,5 +4,6 @@ export interface Menu {
   price: number;
   quantity: number;
   imageUrl: string;
+  description: string;
   calculationUnit: string;
 }

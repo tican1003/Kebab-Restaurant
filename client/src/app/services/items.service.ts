@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment.development';
 import { Menu } from '../models/menu';
 import { map } from 'rxjs';
@@ -21,12 +21,24 @@ export class ItemsService {
     //     return menu;
     //   })
     // );
+    const headerDict = {
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
+      'Access-Control-Allow-Headers': 'Content-Type',
+      'ngrok-skip-browser-warning': '69420',
+    };
 
-    return this.http.get<Menu[]>(this.baseUrl + 'menu').pipe(
-      map((menu) => {
-        this.menu = menu;
-        return menu;
-      })
-    );
+    const requestOptions = {
+      headers: new HttpHeaders(headerDict),
+    };
+
+    return this.http
+      .get<Menu[]>(this.inventoryApiUrl + 'MenuViewModels', requestOptions)
+      .pipe(
+        map((menu) => {
+          this.menu = menu;
+          return menu;
+        })
+      );
   }
 }

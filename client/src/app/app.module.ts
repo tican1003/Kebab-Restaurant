@@ -14,6 +14,9 @@ import { RegisterComponent } from './register/register.component';
 import { FormsModule } from '@angular/forms';
 import { JwtInterceptor } from './interceptors/jwt.interceptor';
 import { SharedModule } from './modules/shared.module';
+import { OrderComponent } from './order/order.component';
+import { AboutComponent } from './about/about.component';
+import { BillComponent } from './bill/bill.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +27,9 @@ import { SharedModule } from './modules/shared.module';
     MenuComponent,
     LoginComponent,
     RegisterComponent,
+    OrderComponent,
+    AboutComponent,
+    BillComponent,
   ],
   imports: [
     BrowserModule,

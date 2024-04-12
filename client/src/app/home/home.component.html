@@ -157,13 +157,15 @@
           <div class="box">
             <div>
               <div class="img-box">
-                <img src="../assets/public/images/f1.png" alt="" />
+                <img
+                  src="{{ item.imageUrl || '../assets/public/images/f1.png' }}"
+                  alt=""
+                />
               </div>
               <div class="detail-box">
                 <h5>{{ item.name }}</h5>
                 <p>
-                  Veniam debitis quaerat officiis quasi cupiditate quo, quisquam
-                  velit, magnam voluptatem repellendus sed eaque
+                  {{ item.description }}
                 </p>
                 <div class="options">
                   <h6>{{ item.price | number : "1.0-0" }} đ</h6>

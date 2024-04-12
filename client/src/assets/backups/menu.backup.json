@@ -1,0 +1,27 @@
+[
+  {
+    "id": 2,
+    "name": "Mỳ ý sốt bò bằm",
+    "price": 35000,
+    "quantity": 500,
+    "imageUrl": "https://jollibee.com.vn/media/catalog/product/cache/11f3e6435b23ab624dc55c2d3fe9479d/m/_/m__2.png",
+    "description": "Nhiều thịt, đậm phô mai sẽ là câu miêu tả chính xác cho món ngon này. Sợi mì vàng óng ánh cùng sốt bò bằm ngon ngọt hòa quyện với phô mai béo ngậy chắc chắn sẽ làm bạn thích mê ngay khi thưởng thức lần đầu tiên.",
+    "caculationUnit": "dĩa"
+  },
+  {
+    "name": "Gà giòn vui vẻ",
+    "price": 33000,
+    "quantity": 200,
+    "imageUrl": "https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/1/_/1_mi_ng_ggvv_png_1.png",
+    "description": "Khám phá hương vị độc đáo của món gà chiên giòn - với thịt gà tươi ngon và lớp vỏ giòn tan, món ăn này hứa hẹn mang lại trải nghiệm ẩm thực đầy hấp dẫn cho bạn và gia đình.",
+    "caculationUnit": "miếng"
+  },
+  {
+    "name": "Gà sốt cay",
+    "price": 35000,
+    "quantity": 200,
+    "imageUrl": "https://jollibee.com.vn//media/catalog/category/web-07.png",
+    "description": "Hãy thử ngay món gà rán sốt cay - sự kết hợp hoàn hảo giữa thịt gà mềm mại, lớp vỏ giòn tan và hương vị sốt cay đậm đà. Món ăn này không chỉ làm bạn thỏa mãn khẩu vị mà còn khiến bạn phải quay lại lần nữa.",
+    "caculationUnit": "miếng"
+  }
+]
