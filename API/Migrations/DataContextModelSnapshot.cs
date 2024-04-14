@@ -115,6 +115,9 @@ namespace API.Migrations
                     b.Property<bool>("IsSuccess")
                         .HasColumnType("bit");
 
+                    b.Property<int>("MenuId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
@@ -142,7 +145,7 @@ namespace API.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("CaculationUnit")
+                    b.Property<string>("CalculationUnit")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Description")
@@ -174,6 +177,9 @@ namespace API.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsTakeAway")
                         .HasColumnType("bit");
 
                     b.Property<int>("TableNumber")

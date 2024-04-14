@@ -8,5 +8,6 @@
         public int Quantity { get; set; }
         public string CaculationUnit { get; set; }
         public bool IsSuccess { get; set; } = false;
+        public int MenuId { get; set; }
     }
 }

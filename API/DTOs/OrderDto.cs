@@ -7,7 +7,8 @@ namespace API.DTOs
     {
         public AppUser User { get; set; }
         public bool IsActive { get; set; } = true;
+        public bool IsTakeAway { get; set; }
         public int TableNumber { get; set; }
-        public DateTime TimeIn { get; set; } = DateTime.UtcNow;
+        public DateTime TimeIn { get; set; }
     }
 }

@@ -1,0 +1,106 @@
+<app-header></app-header>
+
+<section class="book_section layout_padding">
+  <div class="container">
+    <div class="heading_container">
+      <h2>Order Detail</h2>
+    </div>
+    <div
+      class="row user-detail"
+      *ngIf="accountService.currentUser$ | async as user"
+    >
+      <div class="col-md-6">
+        <div>
+          <label for="knownAs">User Name</label>
+          <input
+            name="knownAs"
+            type="text"
+            class="form-control"
+            [value]="user.username"
+            [disabled]="true"
+          />
+        </div>
+        <div>
+          <label for="orderId">Order Id</label>
+          <input
+            name="orderId"
+            type="text"
+            class="form-control"
+            value="{{ order?.id }}"
+            [disabled]="true"
+          />
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div>
+          <label for="tableNumber">Table Number</label>
+          <input
+            name="tableNumber"
+            type="text"
+            class="form-control"
+            value="{{ order?.tableNumber }}"
+            [disabled]="true"
+          />
+        </div>
+        <div>
+          <label for="timeIn">Time In</label>
+          <input
+            name="timeIn"
+            type="text"
+            class="form-control"
+            value="{{
+              order?.timeIn | date : 'HH:mm:ss dd-MM-yyyy' : 'UTC+14'
+            }}"
+            [disabled]="true"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Price</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Calculation Unit</th>
+            <th scope="col" *ngIf="order?.isActive">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of items; let i = index">
+            <th scope="row">{{ i + 1 }}</th>
+            <td>{{ item.name }}</td>
+            <td>{{ item.price }}</td>
+            <td>{{ item.quantity }}</td>
+            <td>{{ item.calculationUnit }}</td>
+
+            <td class="item-action" *ngIf="order?.isActive">
+              <i
+                class="fa fa-plus-circle item-plus"
+                aria-hidden="true"
+                (click)="plusItem(item.menuId)"
+              ></i>
+              <i
+                class="fa fa-minus-circle item-minus"
+                aria-hidden="true"
+                (click)="minusItem(item.menuId)"
+              ></i>
+            </td>
+          </tr>
+          <tr>
+            <th>Total</th>
+            <td colspan="2" class="total">{{ total }}</td>
+            <th>Quantity</th>
+            <td colspan="2" class="total">{{ totalQuantity }}</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="btn_box" *ngIf="order?.isActive">
+        <button class="add-item-btn" (click)="addItem()">Add Item</button>
+        <button class="bill-btn" (click)="invoice()">Invoice</button>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,42 @@
+<app-header> </app-header>
+
+<section class="book_section layout_padding">
+  <div class="container">
+    <div class="heading_container">
+      <h2>Order</h2>
+    </div>
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+        <div class="form_container">
+          <form #orderForm="ngForm" (ngSubmit)="createOrder()">
+            <label for="takeAway">Take Away?</label>
+            <div>
+              <select
+                [(ngModel)]="model.takeAway"
+                name="takeAway"
+                class="form-control"
+              >
+                <option value="true">Yes</option>
+                <option selected value="false">No</option>
+              </select>
+            </div>
+            <div>
+              <label for="tableNumber">Table Number</label>
+              <input
+                type="number"
+                [(ngModel)]="model.tableNumber"
+                name="tableNumber"
+                class="form-control"
+              />
+            </div>
+            <div class="btn_box">
+              <button type="submit">Order Now</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="col-md-3"></div>
+    </div>
+  </div>
+</section>

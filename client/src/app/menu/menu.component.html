@@ -1,3 +1,4 @@
+<app-header></app-header>
 <section class="food_section layout_padding">
   <div class="container">
     <div class="heading_container heading_center">
@@ -6,21 +7,20 @@
 
     <div class="filters-content">
       <div class="row grid">
-        <div class="col-sm-6 col-lg-4 all pizza">
+        <div class="col-sm-6 col-lg-4 all pizza" *ngFor="let item of menu">
           <div class="box">
             <div>
               <div class="img-box">
-                <img src="../../assets/public/images/f1.png" alt="" />
+                <img src="{{ item.imageUrl }}" alt="" />
               </div>
               <div class="detail-box">
-                <h5>Delicious Pizza</h5>
+                <h5>{{ item.name }}</h5>
                 <p>
-                  Veniam debitis quaerat officiis quasi cupiditate quo, quisquam
-                  velit, magnam voluptatem repellendus sed eaque
+                  {{ item.description }}
                 </p>
                 <div class="options">
-                  <h6>$20</h6>
-                  <a href="">
+                  <h6>{{ item.price | number : "1.0-0" }} đ</h6>
+                  <a (click)="addItemHandler(item.id)">
                     <svg
                       version="1.1"
                       id="Capa_1"
@@ -82,8 +82,8 @@
         </div>
       </div>
     </div>
-    <div class="btn-box">
+    <!-- <div class="btn-box">
       <a href=""> View More </a>
-    </div>
+    </div> -->
   </div>
 </section>

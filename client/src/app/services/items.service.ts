@@ -41,4 +41,23 @@ export class ItemsService {
         })
       );
   }
+
+  getMenuById(menuId: Number) {
+    // return this.http.get<Menu>(this.baseUrl + `menu/${menuId}`);
+    const headerDict = {
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
+      'Access-Control-Allow-Headers': 'Content-Type',
+      'ngrok-skip-browser-warning': '69420',
+    };
+
+    const requestOptions = {
+      headers: new HttpHeaders(headerDict),
+    };
+
+    return this.http.get<Menu>(
+      this.inventoryApiUrl + `MenuViewModels/${menuId}`,
+      requestOptions
+    );
+  }
 }

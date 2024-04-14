@@ -9,6 +9,6 @@
         public int Quantity { get; set; }
         public string ImageUrl { get; set; }
         public string Description { get; set; }
-        public string CaculationUnit { get; set; }
+        public string CalculationUnit { get; set; }
     }
 }

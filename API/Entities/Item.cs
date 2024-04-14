@@ -10,6 +10,7 @@
         public string CaculationUnit {  get; set; }
         public Order Order { get; set; }
         public bool IsSuccess { get; set; }
+        public int MenuId { get; set; }
 
         public decimal ItemTotal()
         {

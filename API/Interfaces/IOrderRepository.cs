@@ -9,5 +9,6 @@ namespace API.Interfaces
         Task<Order> CreateOrderAsync(Order order);
         void DeleteOrder(Order order);
         Task<bool> SaveAllAsync();
+        Task<bool> DeactiveOrderAsync(int id);
     }
 }

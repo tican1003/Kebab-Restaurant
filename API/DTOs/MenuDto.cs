@@ -10,5 +10,6 @@ namespace API.DTOs
         public string ImageUrl { get; set; } = string.Empty;
         public string Description { get; set; } = string.Empty ;
         public string CalculationUnit { get; set; } = "Cái";
+        public int MenuId { get; set; }
     }
 }

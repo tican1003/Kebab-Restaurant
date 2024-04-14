@@ -6,9 +6,10 @@ namespace API.DTOs
     {
         public string Name { get; set; }
         public uint Price { get; set; }
-        public int Quantity { get; set; }
-        public string CaculationUnit { get; set; }
-        public bool IsSuccess { get; set; }
+        public int Quantity { get; set; } = 1;
+        public string CaculationUnit { get; set; } = "cái";
+        public bool IsSuccess { get; set; } = true;
         public Order Order { get; set; }
+        public int MenuId { get; set; }
     }
 }

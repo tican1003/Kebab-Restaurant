@@ -84,5 +84,10 @@ namespace API.Controllers
 
             return BadRequest("Failed to delete order");
         }
+        [HttpGet("deactive/{id}")]
+        public async Task<bool> DeactiveOrder(int id)
+        {
+            return await _orderRepository.DeactiveOrderAsync(id);
+        }
     }
 }

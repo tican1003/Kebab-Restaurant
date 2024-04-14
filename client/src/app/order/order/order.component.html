@@ -1,0 +1,30 @@
+<app-header> </app-header>
+
+<section class="food_section layout_padding">
+  <div class="container">
+    <div class="btn-box">
+      <a routerLink="/orders/create"> New Order </a>
+    </div>
+
+    <div class="filters-content" *ngIf="order">
+      <div class="row grid">
+        <div class="col-sm-6 col-lg-4" *ngFor="let item of order">
+          <div class="order-card" (click)="detailOrder(item.id)">
+            <div>
+              <div class="detail-card">
+                <h5 class="detail-table">Table: {{ item.tableNumber }}</h5>
+                <p>Order Id: {{ item.id }}</p>
+                <p *ngIf="item.isActive" class="online">Oneline</p>
+                <p *ngIf="!item.isActive" class="offline">Offline</p>
+                <p>
+                  Time in:
+                  {{ item.timeIn | date : "HH:mm:ss dd-MM-yyyy" : "UTC+14" }}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

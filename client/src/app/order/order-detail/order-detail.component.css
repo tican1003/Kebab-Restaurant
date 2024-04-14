@@ -1,0 +1,43 @@
+.user-detail {
+    margin: 20px 0;
+}
+.user-detail > div > div {
+    margin: 12px 0;
+}
+.item-action {
+    display: flex;
+    align-items: center;
+    justify-content:center;
+}
+.item-plus {
+    color: green;
+    font-size: 24px;
+    padding-right: 12px;
+
+}
+.item-minus {
+    color: red;
+    font-size: 24px;
+}
+.btn_box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.add-item-btn, .bill-btn {
+    display: block;
+    padding: 8px 30px;
+    margin: 0 20px;
+    background-color: #ffbe33;
+    color: #ffffff;
+    border-radius: 45px;
+    transition: all 0.3s;
+    border: none;
+}
+.bill-btn {
+    background-color: green;
+}
+.total {
+    text-align:center;
+    color: red;
+}

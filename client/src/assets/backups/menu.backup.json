@@ -1,6 +1,5 @@
 [
   {
-    "id": 2,
     "name": "Mỳ ý sốt bò bằm",
     "price": 35000,
     "quantity": 500,
@@ -23,5 +22,29 @@
     "imageUrl": "https://jollibee.com.vn//media/catalog/category/web-07.png",
     "description": "Hãy thử ngay món gà rán sốt cay - sự kết hợp hoàn hảo giữa thịt gà mềm mại, lớp vỏ giòn tan và hương vị sốt cay đậm đà. Món ăn này không chỉ làm bạn thỏa mãn khẩu vị mà còn khiến bạn phải quay lại lần nữa.",
     "caculationUnit": "miếng"
+  },
+  {
+    "name": "Kebab: The Wrap",
+    "price": 45000,
+    "quantity": 200,
+    "imageUrl": "https://thekebabshop.com/wp-content/uploads/2023/04/Web-Wrap.png",
+    "description": "Một lựa chọn Kebab, O.G. Sốt sữa chua, rau xanh, cà chua-dưa chuột và hành ngâm. Hãy thử món “San Diego Style” với khoai tây chiên và phô mai Feta bên trong.",
+    "caculationUnit": "phần"
+  },
+  {
+    "name": "Kebab: The Bowl",
+    "price": 65000,
+    "quantity": 150,
+    "imageUrl": "https://thekebabshop.com/wp-content/uploads/2023/04/Web-box.png",
+    "description": "Một lựa chọn Kebab, O.G. Sốt sữa chua, rau xanh, cà chua-dưa chuột và hành ngâm. Hãy thử món “Fire Bowl” đi kèm với Fire Hummus và Fire Chili Sauce.",
+    "caculationUnit": "hộp"
+  },
+  {
+    "name": "Kebab: The plate",
+    "price": 99000,
+    "quantity": 150,
+    "imageUrl": "https://thekebabshop.com/wp-content/uploads/2023/04/Web-Plate-Kebab.png",
+    "description": "Một lựa chọn Kebab, O.G. Sốt sữa chua, rau xanh, cà chua-dưa chuột và hành ngâm. Hãy thử món “Fire Bowl” đi kèm với Fire Hummus và Fire Chili Sauce.",
+    "caculationUnit": "dĩa"
   }
 ]
