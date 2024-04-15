@@ -59,6 +59,7 @@ export class MenuComponent implements OnInit {
                   next: (checkOrder) => {
                     console.log('Order' + checkOrder);
                     if (checkOrder) {
+                      console.log(this.item);
                       if (this.item) this.plusItem(orderId, menuId);
                     } else {
                       if (this.item) this.addItem(this.item);

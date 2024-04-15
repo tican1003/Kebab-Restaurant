@@ -1,3 +1,6 @@
 .options {
     cursor: pointer;
 }
+.item-des {
+    height: 120px;
+}

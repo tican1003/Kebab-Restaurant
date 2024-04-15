@@ -33,7 +33,7 @@ export class ItemsService {
     };
 
     return this.http
-      .get<Menu[]>(this.inventoryApiUrl + 'MenuViewModels', requestOptions)
+      .get<Menu[]>(this.inventoryApiUrl + 'Menu', requestOptions)
       .pipe(
         map((menu) => {
           this.menu = menu;
@@ -56,7 +56,7 @@ export class ItemsService {
     };
 
     return this.http.get<Menu>(
-      this.inventoryApiUrl + `MenuViewModels/${menuId}`,
+      this.inventoryApiUrl + `Menu/${menuId}`,
       requestOptions
     );
   }
