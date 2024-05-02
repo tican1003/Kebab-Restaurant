@@ -10,5 +10,6 @@ namespace API.Interfaces
         void DeleteOrder(Order order);
         Task<bool> SaveAllAsync();
         Task<bool> DeactiveOrderAsync(int id);
+        Task<bool> CheckOrderAsync(int tableNumber);
     }
 }

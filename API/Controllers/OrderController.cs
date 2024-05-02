@@ -16,7 +16,7 @@ namespace API.Controllers
         private readonly IUserRepository _userRepository;
         private readonly IMapper _mapper;
 
-        public OrderController(IOrderRepository orderRepository, IUserRepository userRepository,  IMapper mapper)
+        public OrderController(IOrderRepository orderRepository, IUserRepository userRepository, IMapper mapper)
         {
             _orderRepository = orderRepository;
             _userRepository = userRepository;
@@ -26,6 +26,12 @@ namespace API.Controllers
         [HttpPost]
         public async Task<ActionResult<OrderDto>> Create(OrderDto orderDto)
         {
+            bool checkOder = await _orderRepository.CheckOrderAsync(orderDto.TableNumber);
+
+            if (checkOder)
+            {
+                return BadRequest("Order table is exist!");
+            }
             var user = await _userRepository.GetUserByUsernameAsync(User.GetUserName());
 
             orderDto.User = user;
@@ -33,7 +39,7 @@ namespace API.Controllers
             var order = _mapper.Map<Order>(orderDto);
 
             await _orderRepository.CreateOrderAsync(order);
-            if(await _orderRepository.SaveAllAsync()) return Ok(order);
+            if (await _orderRepository.SaveAllAsync()) return Ok(order);
 
             return BadRequest("Failed to create order");
         }

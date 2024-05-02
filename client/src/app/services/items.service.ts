@@ -15,12 +15,12 @@ export class ItemsService {
   constructor(private http: HttpClient) {}
 
   getMenu() {
-    // return this.http.get<Menu[]>(this.baseUrl + 'menu').pipe(
-    //   map((menu) => {
-    //     this.menu = menu;
-    //     return menu;
-    //   })
-    // );
+    return this.http.get<Menu[]>(this.baseUrl + 'menu').pipe(
+      map((menu) => {
+        this.menu = menu;
+        return menu;
+      })
+    );
     const headerDict = {
       'Content-Type': 'application/json',
       Accept: 'application/json',
@@ -43,7 +43,7 @@ export class ItemsService {
   }
 
   getMenuById(menuId: Number) {
-    // return this.http.get<Menu>(this.baseUrl + `menu/${menuId}`);
+    return this.http.get<Menu>(this.baseUrl + `menu/${menuId}`);
     const headerDict = {
       'Content-Type': 'application/json',
       Accept: 'application/json',

@@ -46,5 +46,11 @@ namespace API.Repositories
             item.IsActive = false;
             return await _context.SaveChangesAsync() > 0;
         }
+        public async Task<bool> CheckOrderAsync(int tableNumber)
+        {
+            var checkOder = await _context.Orders.FirstOrDefaultAsync(x => x.TableNumber == tableNumber && x.IsActive == true);
+            if (checkOder == null) return false;
+            return true;
+        }
     }
 }
